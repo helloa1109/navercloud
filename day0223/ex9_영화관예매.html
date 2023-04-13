@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    body, body *{ 
+        font-family: 'Jua';
+    }
+
+    .list{
+        position: absolute;
+        left:500px;
+        top: 150px;
+    }
+
+    .box{
+        position: absolute;
+        bottom: 400px;
+        left: 100px;
+        border: 10px solid pink;
+        width: 500px;
+        height: 200px;
+        text-align: center;
+        line-height: 60px;
+        font-size: 20px;
+    }
+
+    .list2{
+        position: absolute;
+        left: 230px;
+        top: 100px;
+    }
+    
+    .list3{
+        position: absolute;
+        left: 300px;
+        top: 100px;
+    }
+
+    .ulm{
+        list-style: none;
+        cursor: pointer;
+    }
+
+    .where{
+        list-style: none;
+        cursor: pointer;
+    }
+</style>
+<script>
+    let txt= "";
+    let txt1="";
+    $(function(){
+        let a=`<button type="button" class="btn btn-primary btn-sm"
+        style="margin: 20px 30px;" id="btnmovie">영화 예매</button>`;
+        $("body").append(a);
+
+            $(document).on("click","#btnmovie",function(){
+            let b=`&nbsp<button type="button"
+            class="newbtn btn btn-primary btn-sm">극장선택</button>`;
+            $(".list2").append(b);
+            
+            let c=`&nbsp<button type="button"
+            class="newbtn2 btn btn-warning btn-sm">영화선택</button>`;
+            $(".list3").append(c);
+
+            $(".newbtn2").click(function(){
+                let t=`
+                    <ul class="ulm">
+                        <li>코코</li>
+                        <li>어바웃타임</li>
+                        <li>노팅힐</li>
+                        <li>해리가 샐리를 만났을때</li>
+                    </ul>
+                `;
+                $("div.list").html(t);
+            });
+
+            $(".newbtn").click(function(){
+                let tt=`
+                    <ul class="where">
+                        <li>cgv</li>
+                        <li>메가박스</li>
+                        <li>롯데시네마</li>
+                    </ul>
+                `;
+                $("div.list").html(tt);
+            });
+            
+            $(document).on("click","ul.where li",function(){
+                txt=$(this).text();
+                if(txt1 != ""){
+                    $("div.box").html(`영화관 :${txt}<br>영화제목 :${txt1}`);
+                }
+            });
+
+            $(document).on("click","ul.ulm li",function(){
+                txt1=$(this).text();
+                if(txt != ""){
+                    $("div.box").html(`영화제목: ${txt1}<br>영화관 :${txt}`);
+                }
+            });
+        });
+    });
+</script>
+</head>
+<body>
+    
+    <div class="list"></div>
+    <div class="list2"></div>
+    <div class="list3"></div>
+    <div class="box"></div>
+</body>
+</html>

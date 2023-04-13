@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+<div class="imgs">
+    <img src="../Image/moviestar/2.jpg" id="img1" width="150">
+    <br><br>
+    </div> 
+    <div class="btns">
+        <button type="button" id="btn2">점점크게</button>
+        <button type="button" id="btn3">점점작게</button>
+    </div> 
+  
+
+<script>
+    var starphoto=document.getElementById("img1");
+    var b2=document.getElementById("btn2");
+    var b3=document.getElementById("btn3");
+
+    b2.onclick=function(){
+        var b=starphoto .getAttribute("width");
+        starphoto.setAttribute("width",Number(b)+10);
+    }
+
+    b3.onclick=function(){
+        var b=starphoto.getAttribute("width");
+        starphoto.setAttribute("width",Number(b)-10);
+    }
+
+    
+</script>
+</body>
+</html>

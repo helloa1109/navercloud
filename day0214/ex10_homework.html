@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+   
+        body, body *{ 
+            font-family: 'Jua';
+        }
+
+        div.ho{
+            width: 630px;
+            height: 290px;
+            background-color:antiquewhite;
+            margin-left: 20px;
+            margin-top: 20px;
+            text-align:center;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            //1. 입력 후 엔터 
+            document.getElementById("txt").onkeyup=function(e){
+                if(e.keyCode==13){
+                    let a=this.value;
+                    document.querySelector(".ho").innerText=a;
+                }
+            }
+
+            // 테두리
+            document.querySelector("#border").onclick=function(){
+                if(this.checked){
+                    document.querySelector(".ho").style.border="10px groove gold";
+                }else{
+                    document.querySelector(".ho").style.border="none";
+                }
+            }
+
+            //글자 크기
+            let size=document.querySelectorAll("#size");
+            for(let i=0;i<size.length;i++){
+                size[i].onclick=function(){
+                    document.querySelector(".ho").style.fontSize=this.value;
+                }
+            }
+
+            //배경 색
+            document.getElementById("bcolor").onchange=function(){
+
+                document.querySelector(".ho").style.backgroundColor=this.value;
+            }
+
+            //글자 색
+            document.getElementById("txtcolor").onchange=function(){
+            
+                    document.querySelector(".ho").style.color=this.value;
+            }
+
+            //글꼴 선택
+            let family=document.querySelectorAll("#family");
+            for(let i=0;i<family.length;i++){
+                family[i].onclick=function(){
+                    document.querySelector(".ho").style.fontFamily=this.value;
+                }
+            }
+        }   
+    </script>
+</head>
+<body>
+    <div>
+       입력 후 엔터를 누르세요 : <input type="text" id="txt" value="안녕하세요">
+       <label><input type="checkbox" id="border">테두리</label>
+       <br>
+    
+       글자 크기 :
+        <label>
+            <input type="radio" id="size" value="10px" name="size">10px
+        </label>
+        <label>
+            <input type="radio" id="size" value="20px" name="size">20px
+        </label>
+        <label>
+            <input type="radio" id="size" value="30px" name="size" checked>30px
+        </label>
+        <label>
+            <input type="radio" id="size" value="40px" name="size">40px
+        </label>
+
+        <br>
+        글자 색 : <input type="color" id="txtcolor" name="txtcolor">
+        배경 색 : <label><input type="color" id="bcolor" name="bcolor" value="blue"></label>
+        <br>
+
+        글꼴 선택 : 
+        <label>
+            <input type="radio" id="family" value="Jua" name="family">Jua
+        </label>
+        <label>
+            <input type="radio" id="family" value="Gamja Flower" name="family">Gamja Flower
+        </label>
+        <label>
+            <input type="radio" id="family" value="Lobster" name="family">Lobster
+        </label>
+        <label>
+            <input type="radio" id="family" value="Nanum Pen" name="family">Nanu 
+        </label>
+    </div>
+    <div class="ho"></div>
+</body>
+</html>

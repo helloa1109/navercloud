@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" style="width: 100%;border-collapse: collapse;">
+    <caption><b style="font-size: 30px;">구구단 출력하기</b></caption>
+
+    <tr bgcolor="lightblue">
+        <script>
+            
+            for(var dan=2;dan<=9;dan++){
+                document.write(`<tr>${dan}단</tr>`);
+             
+            }
+        </script>
+    
+    <script>
+           for(var i=1;i<=9;i++){
+                document.write("<tr align=center>");
+                for(var dan=2;dan<=9;dan++){
+                    document.write(`<td>${dan}x${i}=${dan*i}</td>`);
+                }
+                document.write("</tr>");
+           }
+    </script>
+    </table>
+</body>
+</html>

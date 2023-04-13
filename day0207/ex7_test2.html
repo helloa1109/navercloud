@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+이름
+<input type="text" id="irum" style="width: 100px;">
+<br><br>
+자바
+<input type="text" id="jav" style="width: 100px;">
+<br><br>
+HTML
+<input type="text" id="ht" style="width: 100px;">
+<br><br>
+<button type="button" id="btn">결과 확인</button>
+<div id="result">
+</div>
+
+<script>
+    var irum=document.getElementById("irum");
+    var jav=document.getElementById("jav");
+    var ht=document.getElementById("ht");
+
+    jav.onblur=function(){
+        if(isNaN(this.value))
+        {
+            alert("숫자로 입력해주세요");
+            this.value="";
+            this.focus();
+        }
+        
+        if(this.value>100 || this.value <0) {
+            alert("0 이상 100 이하의 숫자만 입력해주세요");
+            this.value="";
+            this.focus();
+        }
+    }
+
+    ht.onblur=function(){
+        console.log(isNaN(this.value));
+        if(isNaN(this.value))
+    {
+            alert("숫자로 입력해주세요");
+            this.value="";
+            this.focus();
+    }
+
+    if(this.value>100 || this.value <0) {
+            alert("0 이상 100 이하의 숫자만 입력해주세요");
+            this.value="";
+            this.focus();
+        }
+        }
+
+    document.getElementById("btn").onclick=function(){
+        var n=irum.value;
+        var s=Number(jav.value) + Number(ht.value);
+        var t=s/2;
+
+        document.getElementById("result").innerHTML=`이름:${n} 총점:${s} 평균:${t}`;
+
+    }
+
+</script>
+</body>
+</html>

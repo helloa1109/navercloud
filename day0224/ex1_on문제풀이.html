@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    body, body *{ 
+        font-family: 'Jua';
+    }
+
+    #btnres{
+        position: absolute;
+        left: 250px;
+        top: 30px;
+        width: 130px;
+    }
+
+    #view1{
+        position: absolute;
+        left: 70px;
+        top: 130px;
+    }
+
+    #view2{
+        position: fixed;
+        left: 300px;
+        top: 130px;
+        font-size: 25px;
+        width: 300px;
+        text-align: right;
+    }
+
+    #view2 h4:hover{
+        cursor: pointer;
+        background-color: #ccc;
+    }
+
+    #view3{
+        position: absolute;
+        left: 100px;
+        top: 250px;
+        font-size: 22px;
+        border: 5px inset orange;
+        width: 400px;
+        height: 100px;
+        text-align: center;
+        border-radius: 30px;
+        padding: 20px;
+    }
+</style>
+<script>
+    $(function(){
+        let movie="",theater="";
+
+        $("#btnres").click(function(){
+            let s=`
+                <button type="button" class="btn btn-outline-danger" id="btn1">극장예매</button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-danger" id="btn2">영화예매</button>
+
+            `;
+            $("#view1").html(s);
+        });
+
+        //극장 목록 나타내기
+        $(document).on("click","#btn1",function(){
+            var s=`
+            <h4 class='theater'>CGV강남점</h4>
+            <h4 class='theater'>MEGABOX강남점</h4>
+            <h4 class='theater'>CGV분당점</h4>
+            `;
+            $("#view2").html(s);
+        });
+
+        //영화 제목 나타내기
+        $(document).on("click","#btn2",function(){
+            var s=`
+            <h4 class='movie'>코코</h4>
+            <h4 class='movie'>노팅힐</h4>
+            <h4 class='movie'>범죄도시</h4>
+            `;
+            $("#view2").html(s);
+        });
+
+        //영화관 or 영화제목 클릭시 출력
+        $(document).on("click","#view2 h4",function(){
+            //영화관인지 제목인지 판별을 위해 class얻는다
+            let selectClass=$(this).attr("class");
+            let text=$(this).text();
+            if(selectClass=='movie')
+                movie=text;
+            else
+                theater=text;
+
+            let s=`
+                극장명 : ${theater}<br>
+                영화제목 : ${movie}<br>
+            `;
+
+            $("#view3").html(s);
+        });
+    });
+</script>
+</head>
+<body>
+    <button type="button" class="btn btn-success btn-sm" id="btnres">
+        영화 예매</button>
+
+        <div id="view1"></div>
+        <div id="view2"></div>
+        <div id="view3"></div>
+</body>
+</html>

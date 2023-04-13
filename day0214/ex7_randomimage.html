@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+   
+        body, body *{ 
+            font-family: 'Jua';
+        }
+        
+        .photo{
+            width: 300px;
+            height: 280px;
+            border: 10px inset lightcoral;
+        }
+
+        .message{
+            margin-left: 50px;
+            text-shadow: 5px 5px 5px gray;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var arrimage=new Array();
+            arrimage.push("../image/mycarimage/car11.png");
+            arrimage.push("../image/mycarimage/car13.png");
+            arrimage.push("../image/mycarimage/car14.png");
+            arrimage.push("../image/mycarimage/car15.png");
+            arrimage.push("../image/mycarimage/car10.png");
+            arrimage.push("../image/mycarimage/car9.png");
+
+            var arrmessage=["오늘은 발렌타인데이","재미있는 자바스크립트","Have a Good Day","오늘 점심은 뭐 먹을까요",
+            "공부하자"];
+
+            //1초마다 임의로 사진과 메세지가 바뀌도록 해주세요
+            setInterval(()=>{
+                let idx1=parseInt(Math.random()*6);
+                let idx2=parseInt(Math.random()*5);
+
+                document.querySelector(".photo").setAttribute("src",arrimage[idx1]);
+                document.querySelector(".message").innerText=arrmessage[idx2];
+            },1000);
+        }
+    </script>
+
+</head>
+<body>
+    <img src="../Image/mycarimage/car12.png" class="photo">
+    <br><br>
+    <h1 class="message">포르쉐</h1>
+</body>
+</html>
